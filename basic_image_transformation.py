@@ -5,6 +5,26 @@ img = cv.imread('Photos\Cats.jpeg')
 cv.imshow('Cats', img)
 print(img.shape)
 
+# To add and extra layer on photo
+border_size = 30
+border_color = (0, 0, 0)  # RGB color for black
+
+# Add the border
+image_with_border = cv.copyMakeBorder(
+    img,
+    top=border_size,  # Top border
+    bottom=border_size,  # Bottom border
+    left=border_size,  # Left border
+    right=border_size,  # Right border
+    borderType=cv.BORDER_CONSTANT,
+    value=border_color
+)
+
+# Save or display the new image with border
+cv.imwrite('image_with_border.jpg', image_with_border)
+cv.imshow('layer added', image_with_border)
+
+
 
 # Translation
 def translation(img, x, y):
